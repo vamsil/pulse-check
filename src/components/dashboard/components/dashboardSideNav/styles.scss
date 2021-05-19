@@ -1,0 +1,20 @@
+@import './../../../../styles/_variables';
+
+.dashboard-side-nav {
+
+
+  width: 300px;
+  height: calc(100vh - #{$header-height});
+  background-color: #e9ecef;
+  position: sticky;
+  top: $header-height;
+
+  &-content {
+    // padding-left: 
+
+    .p-accordion-content {
+      background-color: #e9ecef;
+      border: none;
+    }
+  }
+}
