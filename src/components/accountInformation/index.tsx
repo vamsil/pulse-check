@@ -18,26 +18,21 @@ const useStyles = makeStyles({
   },
 });
 
-
-
-export default function DatabaseDashboard() {
+export default function AccountInformation() {
   const classes = useStyles();
   const {searchKeyword} = useContext(AppContext);
-  const filteredRows = searchKeyword ? rows.filter(r => r.first_name.includes(searchKeyword)): rows;
+  const filteredRows = searchKeyword ? rows.filter(r => r.first_name.includes(searchKeyword) || r.last_name.includes(searchKeyword)): rows;
   return (
     <div className="database-dashboard">
       <div>
-        <h3>Oracle Database Version Info</h3>
-        <div>Oracle database 64 bit production info</div>
+        <h3>Session 1 Page Demo</h3>
         <br />
         <br />
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>First Name</TableCell>
-                <TableCell align="left">Last Name</TableCell>
-                <TableCell align="left">Email</TableCell>
+                <TableCell>Name</TableCell>
                 <TableCell align="left">Gender</TableCell>
                 <TableCell align="left">IP Address</TableCell>
               </TableRow>
@@ -46,10 +41,8 @@ export default function DatabaseDashboard() {
               {filteredRows.map((row: any) => (
                 <TableRow key={row.id}>
                   <TableCell component="th" scope="row">
-                    <Highlighter searchTerm={searchKeyword}>{row.first_name}</Highlighter>
+                    <Highlighter searchTerm={searchKeyword}>{row.first_name + " " + row.last_name}</Highlighter>
                   </TableCell>
-                  <TableCell align="left">{row.last_name}</TableCell>
-                  <TableCell align="left">{row.email}</TableCell>
                   <TableCell align="left">{row.gender}</TableCell>
                   <TableCell align="left">{row.ip_address}</TableCell>
                 </TableRow>
