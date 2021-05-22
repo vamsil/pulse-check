@@ -1,5 +1,7 @@
 import { Switch, Route, Redirect } from 'react-router-dom'
 import DatabaseDashboard from '../databaseDashboard'
+import AccountInformation from '../accountInformation'
+
 
 export default function Routes() {
   return (
@@ -9,7 +11,7 @@ export default function Routes() {
       <Route exact path="/dashboard/session/session3"><div>Session 3</div></Route>
       <Route exact path="/dashboard/session"><Redirect to="/dashboard/session/session1"/></Route>
       <Route exact path="/dashboard/database/backup"><div>Backup</div></Route>
-      <Route exact path="/dashboard/database/account"><div>Account Information</div></Route>
+      <Route exact path="/dashboard/database/account"><AccountInformation /></Route>
       <Route exact path="/dashboard/database/dashboard"><DatabaseDashboard /></Route>
       <Route exact path="/dashboard/database"><Redirect to="/dashboard/database/dashboard"/></Route>
       <Route exact path="/dashboard"><Redirect to="/dashboard/database/dashboard" /></Route>

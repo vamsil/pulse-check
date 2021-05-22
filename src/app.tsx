@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import AppHeader from './components/appHeader';
-
-
-import logo from './logo.svg';
 
 import './app.scss';
 import AppRoutes from './routes';
 
-function App() {
-  return (
+interface IContext {
+  searchKeyword: string;
+  setSearchKeyword: any;
+}
 
+export const AppContext = createContext<IContext>({ searchKeyword: '', setSearchKeyword: () => { } });
+
+function App() {
+  const [searchKeyword, setSearchKeyword] = useState("");
+  return (
     <div className="app">
       <BrowserRouter>
-        <AppHeader />
-        <main>
+        <AppContext.Provider value={{ searchKeyword, setSearchKeyword }}>
+          <AppHeader />
+          <main>
             <AppRoutes />
-        </main>
-        <footer></footer>
+          </main>
+          <footer></footer>
+        </AppContext.Provider>
       </BrowserRouter>
     </div>
   );
