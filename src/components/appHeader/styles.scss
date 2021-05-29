@@ -43,4 +43,12 @@
     }
   }
 }
-
+.search-list{
+  background-color: aliceblue;
+    position: absolute;
+    z-index: 999;
+    width: 355px;
+    height: 200px;
+    overflow-y: scroll;
+    padding-left: 20px;
+}
